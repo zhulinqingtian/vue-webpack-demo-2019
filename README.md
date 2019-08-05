@@ -47,3 +47,21 @@ webpack.base.conf.js的rules中，添加sass的配置
 ```
 <style lang='scss'></style>
 ```
+
+## axios引入及配置(修改原型链方式)
+```
+npm install axios --save
+```
+
+安装其他插件的时候，可以直接在 main.js 中引入并 Vue.use()，但是 axios 并不能 use，只能每个需要发送请求的组件中即时引入.
+为了解决这个问题，有两种开发思路，一是在引入 axios 之后，修改原型链，二是结合 Vuex，封装一个 aciton。这里只说修改原型链的方式.
+
+1. 在 main.js 中引入 axios
+```
+import axios from 'axios'
+```
+
+2. 将 axios 改写为 Vue 的原型属性
+```
+Vue.prototype.$http= axios
+```
