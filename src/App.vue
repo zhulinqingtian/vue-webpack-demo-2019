@@ -8,7 +8,23 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      msg: 'xqgao'
+    }
+  },
+  methods: {
+    show () {
+      this.$http({
+        method: 'get',
+        url: '/user',
+        data: {
+          name: 'virus'
+        }
+      })
+    }
+  }
 }
 </script>
 
