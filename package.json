@@ -11,7 +11,8 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "mock": "json-server --watch json-server/db.json --m json-server/post-to-get.js --routes json-server/routes.json --port 8081"
   },
   "dependencies": {
     "axios": "^0.19.0",
@@ -53,6 +54,7 @@
     "html-webpack-plugin": "^2.30.1",
     "jest": "^22.0.4",
     "jest-serializer-vue": "^0.3.0",
+    "json-server": "^0.15.0",
     "nightwatch": "^0.9.12",
     "node-notifier": "^5.1.2",
     "node-sass": "^4.12.0",

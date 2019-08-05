@@ -1,0 +1,10 @@
+{
+  "getUser": {
+    "status": 200,
+    "data": {
+      "id": "001",
+      "name": "xqgao",
+      "age": 100
+    }
+  }
+}

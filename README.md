@@ -65,3 +65,5 @@ import axios from 'axios'
 ```
 Vue.prototype.$http= axios
 ```
+
+## 使用json-server实现后台数据接口
