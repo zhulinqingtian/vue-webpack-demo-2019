@@ -1,15 +1,23 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import VueRouter from 'vue-router'
+import {routers} from './router'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    }
-  ]
+// 路由配置
+const RouterConfig = {
+  mode: 'history',
+  routes: routers
+}
+
+/* eslint import/prefer-default-export: 0 */
+export const router = new VueRouter(RouterConfig)
+
+// 全局导航钩子
+router.beforeEach((to, from, next) => {
+  next()
+})
+
+router.afterEach(() => {
+  window.scrollTo(0, 0)
 })
