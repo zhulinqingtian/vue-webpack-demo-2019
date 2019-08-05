@@ -28,3 +28,22 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## sass引入
+1.安装依赖
+```
+npm install node-sass --save-dev
+npm install sass-loader --save-dev
+npm install style-loader --save-dev
+npm install sass-resources-loader --save-dev
+```
+2.添加sass配置
+webpack.base.conf.js的rules中，添加sass的配置
+{
+  test: /\.scss$/,
+  loaders: ["style", "css", "sass"]
+}
+3.修改样式语言
+```
+<style lang='scss'></style>
+```
