@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import API from './assets/js/api'
+
 export default {
   name: 'App',
   data () {
@@ -14,15 +16,18 @@ export default {
       msg: 'xqgao'
     }
   },
+  mounted () {
+    this.showUser()
+  },
   methods: {
-    show () {
-      this.$http({
-        method: 'get',
-        url: '/user',
-        data: {
-          name: 'virus'
-        }
-      })
+    showUser () {
+      API.getUser()
+        .then(res => {
+          console.log('res:', res)
+        })
+        .catch(err => {
+          console.log('err:', err)
+        })
     }
   }
 }
