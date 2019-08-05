@@ -12,7 +12,7 @@
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js",
-    "json-server": "node build/json-server/index.js"
+    "mock": "json-server --watch json-server/db.json --m json-server/post-to-get.js --routes json-server/routes.json --port 8081"
   },
   "dependencies": {
     "axios": "^0.19.0",
