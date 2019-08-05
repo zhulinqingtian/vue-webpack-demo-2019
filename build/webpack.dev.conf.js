@@ -24,6 +24,10 @@ app.use('/api', apiRoutes) //通过路由请求数据
  * json-server配置
  */
 
+// 真正使用的路由是服务端配置好的
+// var serverRouter = require('./server-route')
+// serverRouter.setup(app)
+
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
