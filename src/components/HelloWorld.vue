@@ -80,15 +80,44 @@
         </a>
       </li>
     </ul>
+
+    <div class="line">
+      <label>上传文件：</label>
+      <Upload action="/api/upload/uploadImage" :on-success="_uploadSuccess">
+        <Button type="ghost" icon="ios-cloud-upload-outline">上传文件</Button>
+      </Upload>
+
+      <Button type="primary" @click="_toSave">提交</Button>
+    </div>
   </div>
 </template>
 
 <script>
+import API from '../assets/js/api'
+
 export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      goodImg: ''
+    }
+  },
+  methods: {
+    _uploadSuccess (response) {
+      this.goodImg = response.data
+    },
+    _toSave () {
+      const param = {
+        img: this.goodImg
+      }
+      API.uploadImage(param)
+        .then(res => {
+          console.log('res:', res)
+        })
+        .catch(err => {
+          console.log('err:', err)
+        })
     }
   }
 }

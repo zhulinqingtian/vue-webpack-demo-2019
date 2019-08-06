@@ -11,7 +11,7 @@ exports.setup = function setup (app) {
   })
 
   // 接口部分
-  app.post('/api/admin/uploadFile/uploadImage', upload.single('file'), function (req, res, next) {
+  app.post('/api/uploadFile/uploadImage', upload.single('file'), function (req, res, next) {
     next();
   }, imageUpload.proxy);
 

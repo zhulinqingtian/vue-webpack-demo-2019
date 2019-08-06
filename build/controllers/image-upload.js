@@ -3,13 +3,12 @@ var request = require('request');
 var fs = require('fs');
 var path = require('path');
 var config = require('../../config/index');
-var mode = 'dev' || 'build'; // TODO
+var mode = process.env.NODE_ENV === 'production' ? 'build' : 'dev';
 var apiServerUrl = config[mode].proxyTable['/api'];
-var apiAdminServerUrl = config[mode].proxyTable['/api/admin'];
 
 exports.proxy = function (req, res) {
   var method = req.method;
-  var serverURL = req.path.indexOf('admin') > -1 ? apiAdminServerUrl : apiServerUrl;
+  var serverURL = apiServerUrl;
   var options = {
     url: serverURL + req.path,
     method: method,
@@ -28,12 +27,12 @@ exports.proxy = function (req, res) {
   request(options, function (err, response, body) {
     if (err) {
       console.log('api proxy error.', err);
-      res.send('发生错误');
+      res.send('upload 发生错误');
       return;
     }
     if (response.statusCode !== 200) {
       console.log("api proxy error. code: " + response.statusCode + ", body: " + body);
-      res.send('发生错误');
+      res.send('upload 发生错误');
       return;
     }
     res.send(body);
