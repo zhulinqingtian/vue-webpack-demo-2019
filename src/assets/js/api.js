@@ -57,5 +57,15 @@ function fetch (url, param = {}, method = 'get') {
 export default {
   getUser (param) {
     return fetch('/api/getUser', param, 'get')
+  },
+  /**
+   * 上传
+   * @param param {file}
+   */
+  uploadImage (param) {
+    return fetch('/api/upload/uploadImage', param, 'post')
+  },
+  saveImage (param) {
+    return fetch('/api/save/saveImage', param, 'post')
   }
 }
