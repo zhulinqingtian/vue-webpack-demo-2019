@@ -86,8 +86,7 @@
       <Upload action="/api/upload/uploadImage" :on-success="_uploadSuccess">
         <Button type="ghost" icon="ios-cloud-upload-outline">上传文件</Button>
       </Upload>
-
-      <Button type="primary" @click="_toSave">提交</Button>
+      <Button type='primary' @click="_toSave">提交</Button>
     </div>
   </div>
 </template>
@@ -111,7 +110,7 @@ export default {
       const param = {
         img: this.goodImg
       }
-      API.uploadImage(param)
+      API.saveImage(param)
         .then(res => {
           console.log('res:', res)
         })

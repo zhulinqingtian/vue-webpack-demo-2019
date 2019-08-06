@@ -64,5 +64,8 @@ export default {
    */
   uploadImage (param) {
     return fetch('/api/upload/uploadImage', param, 'post')
+  },
+  saveImage (param) {
+    return fetch('/api/save/saveImage', param, 'post')
   }
 }
