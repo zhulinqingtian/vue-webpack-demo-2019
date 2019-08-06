@@ -67,3 +67,36 @@ Vue.prototype.$http= axios
 ```
 
 ## 使用json-server实现后台数据接口
+```
+mock文件夹，及下面的三个文件，然后在package.json里配置运行script
+```
+
+### vue引入iview
+```
+npm install  iview  --save
+
+// main.js
+import iView from 'iview'; // 导入组件库
+import 'iview/dist/styles/iview.css'; // 导入样式
+Vue.use(iView);
+```
+
+### vue引入vuex
+```
+npm install vuex --save
+
+// main.js
+import store from './store/index.js'
+import Vuex from 'vuex'
+Vue.use(Vuex)
+
+// 在实例中挂载
+/* eslint-disable no-new */
+new Vue({
+  store,
+  el: '#app',
+  router,
+  template: '<App/>',
+  components: { App }
+});
+```
