@@ -88,6 +88,8 @@
       </Upload>
       <Button type='primary' @click="_toSave">提交</Button>
     </div>
+
+    <router-link to="/getInfoFromVuex">去获取vuex信息</router-link>
   </div>
 </template>
 
